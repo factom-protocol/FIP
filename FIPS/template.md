@@ -1,6 +1,6 @@
 | FIP   | Title         | Status | Category               | Author                                     | Created    |
 | ----- | ------------- | ------ | ---------------------- | ------------------------------------------ | ---------- |
-| -     | FIP Template  | Draft  | Documentention         | Author Name \<<author@example.com>\>       | 11-24-2018 |
+| -     | FIP Template  | Draft  | Apps & Libraries       | Author Name \<<author@example.com>\>       | 20181124   |
 
 
 
