@@ -1,6 +1,6 @@
-| FIP | Title                                                                      | Status | Category | Author                             | Created    |
-| ----- | ------------------------------------------------------------------------ | ------ | -------- | ---------------------------------- | ---------- |
-| X     | Standard, Contributions, and Process Guidelines for the Factom Ecosystem | Draft  | Meta     | Devon Katz \<<devonk@dbgrow.com>\> | 20181124   |
+| FIP | Title                                                                          | Status | Category | Author                             | Created    |
+| ----- | ---------------------------------------------------------------------------- | ------ | -------- | ---------------------------------- | ---------- |
+| X     | Standard, Contributions, and Process Guidelines for the Factom&reg; Protocol | Draft  | Meta     | Devon Katz \<<devonk@dbgrow.com>\> | 20181124   |
 
 
 
@@ -19,7 +19,7 @@ standards into the Factom&reg; Protocol standard collection.
 # Why Are They Important?
 
 FIP provides an open forum for the community to collaborate on and accept new
-standards into the Factom&reg; Protocol ecosystem. The Factom&reg; Protocol is completely open source, and we rely
+standards into the Factom&reg; Protocol. The Factom&reg; Protocol is completely open source, and we rely
 on our community and standing parties to keep us pointed in the right direction.
 
 
@@ -41,7 +41,7 @@ Standards that define the basic building blocks, technology, and conventions
 that govern Factom&reg; Protocol standards
 
 
-## Apps & Libraries
+## Apps &amp; libraries
 
 Standards that define application level functionality on top of the Factom&reg; Protocol
 

@@ -1,7 +1,7 @@
 
 # Factom Improvement Proposals (FIPs) :gear:
 
-This is the central location for collaboration on the technical aspects of the FAT
+This is the central location for collaboration on the technical aspects of the Factom &reg; Protocol
 project and where standard proposals can be submitted for adoption and
 acceptance into the ecosystem.
 
@@ -28,7 +28,7 @@ defines the FIP process.
 
 | FIP                | Name                    | Category       |
 | ------------------ | ----------------------- | -------------- |
-| [X](FIPS/x.md)     | Standard, Contributions, and Process Guidelines for the FAT Ecosystem | Meta           |
+| [X](FIPS/x.md)     | Standard, Contributions, and Process Guidelines for the Factom &reg; Protocol | Meta           |
 |                    |                         |                |
 
 
@@ -78,8 +78,6 @@ Improvement Protocol
 
 
 # Copyright
-
-Icons by [Icons8](https://icons8.com)
 
 Copyright and related rights waived via
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
