@@ -10,7 +10,7 @@
 conventions, contribution guidelines, and ecosystem of FIP standards.
 
 
-# What Is An FIP?
+# What Is A FIP?
 
 FIP is a formal proposal and process for accepting and integrating new
 standards into the Factom&reg; Protocol standard collection.
@@ -38,17 +38,17 @@ it reviewed and included for evaluation by the community.
 ## Core
 
 Standards that define the basic building blocks, technology, and conventions
-that govern Factom&reg; Protocol standards
+that govern Factom&reg; Protocol standards.
 
 
 ## Apps &amp; libraries
 
-Standards that define application level functionality on top of the Factom&reg; Protocol
+Standards that define application level functionality on top of the Factom&reg; Protocol.
 
 
 ## Interface
 
-Standards that define API architecture, conventions, and specs
+Standards that define API architecture, conventions, and specs.
 
 
 ## Meta
@@ -81,7 +81,7 @@ call process (explained below).
 
 ## Last Call
 
-The token standard is open to final evaluation by the community and general
+The standard is open to final evaluation by the community and general
 public.
 
 - If the standard requires further changes, it reverts to drafting again.
@@ -97,7 +97,7 @@ As FIP is young, currently no maximum timeline is set for this status.
 
 The go ahead for development is given and the standard is finalized.
 Implementation in core, clients and APIs can occur. When the community reaches
-consensus on the implementation's success, the status will change to final.
+consensus on the implementation success, the status will change to final.
 
 
 ## Final
@@ -118,17 +118,17 @@ For each new FIP that comes in, an editor does the following:
   make technical sense, even if they don't seem likely to get to final status.
 - The title should accurately describe the content.
 - Check the FIP for language (spelling, grammar, sentence structure, etc.),
-  markup (Github flavored Markdown), code style
+  markup (Github flavored Markdown), code style.
 
 If the FIP isn't ready, the editor will send it back to the author for
 revision, with specific instructions.
 
 Once the FIP is ready for the repository, the FIP editor will:
 
-- Assign an FIP number (generally the PR number or, if preferred by the
+- Assign a FIP number (generally the PR number or, if preferred by the
   author, the Issue # if there was discussion in the Issues section of this
-repository about this FIP)
-- Merge the corresponding pull request
+repository about this FIP).
+- Merge the corresponding pull request.
 - Send a message back to the FIP author with the next step.
 
 Many FIPs are written and maintained by developers with write access to the codebases
@@ -179,7 +179,7 @@ interoperable implementations for any of the current Factom&reg; Protocol.
 ## Implementation
 
 The implementations must be completed before any FIP is given status "Final",
-but it need not be completed before the FIP is given status "Accepted". While there is merit
+but it does not need to be completed before the FIP is given status "Accepted". While there is merit
 to the approach of reaching consensus on the specification and rationale before
 writing code, the principle of "rough consensus and running code" is still
 useful when it comes to resolving many discussions of standard details.
