@@ -104,7 +104,7 @@ If any step fails, the handshake will fail.
 
 For backward compatibility, the Handshake message is in the same format as protocol V9 requests but it uses the parcel type "Handshake". Nodes running the old software will just drop the invalid message without affecting the node's status in any way. For specific format, see below.
 
-### 9
+### V9
 
 Protocol 9 is the current (Factomd V6.2.2) protocol with the ability to split messages into parts disabled. V9 has the disadvantage of sending unwanted overhead with every message, namely Network, Version, Length, Address, Part info, NodeID, Address, Port. In the old p2p system this was used to post-load information but now has been shifted to the handshake.
 
@@ -134,8 +134,35 @@ Data is serialized via Golang's gob.
 |AppHash|string|Set by the application|
 |AppType|string|Set by the application|
 
+#### V9Share
+The payload of a PeerShare parcel is a json-encoded list of V9Share structs:
 
-### 10
+|Name|Type|Description|
+|----|----|-----------|
+|QualityScore|int32|The sender's quality score of the endpoint|
+|Address|string|The IP address|
+|Port|string|The listening port|
+|NodeID|uint64|The sender's internal id for the peer connected to the endpoint|
+|Hash|string|The sender's internal hash for the peer connected to the endpoint|
+|Location|uint32|The ip address in decimal format|
+|Network|NetworkID (uint32)|The network identifier|
+|Type|uint8|The endpoint type. See below|
+|Connections|int|Deprecated|
+|LastContact|time.Time|Time of last contact|
+|Source|map[string]time.Time|Map of where and when the sender has seen the endpoint|
+
+Types:
+
+|Value|Description|
+|-----|-----------|
+|0|Regular endpoint|
+|1|Special endpoint added by the config file|
+|2|Special endpoint added by the command line|
+
+**Note 1**: Most of the fields, especially QualityScore and Source, are both ignored by the recipient in the legacy code
+
+
+### V10
 
 Protocol 10 is the slimmed down version of V9, containing only the Type, CRC32 of the payload, and the payload itself. Data is also serialized via Golang's gob.
 
@@ -148,6 +175,15 @@ The goal was to move all data that is only required to be checked once and doesn
 |Type|ParcelType (uint16)|The parcel's type (0-8)|
 |Crc32|uint32|The CRC32 checksum of the payload|
 |Payload|[]byte|Binary payload|
+
+#### V10Share
+The payload of a PeerShare parcel is a json-encoded list of V10Share:
+
+|Name|Type|Description|
+|----|----|-----------|
+|Address|string|The ip address of the endpoint|
+|Port|string|The port of the endpoint|
+
 
 # Implementation
 
