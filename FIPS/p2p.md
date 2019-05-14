@@ -73,7 +73,7 @@ Additionally, when fanning out a broadcast, special peers will always be sent pa
 ### Parcel Types
 
 |Val|Name|Payload|Description|
-|----|----|-----------|
+|----|----|-----------|---|
 |0|Heartbeat|-|Deprecated|
 |1|Ping|"Ping"|Sent after a period of inactivity to check for timeouts. Node should reply with a Pong.|
 |2|Pong|"Pong"|Response to a Ping|
@@ -151,7 +151,7 @@ The goal was to move all data that is only required to be checked once and doesn
 
 # Implementation
 
-The code is written in Go to integrate into factomd. It is a standalone, MIT Licensed library that can be used by other application that want to operate their own semi-gossip network or use it as a base for other types of nodes. 
+The code is written in Go to integrate into factomd. It is a standalone, MIT Licensed library that can be used by other applications that want to operate their own semi-gossip network or use it as a base for other types of nodes. 
 
 
 The current state of the code is functional and can be seen at https://github.com/WhoSoup/factom-p2p. Integration into factomd can be seen at https://github.com/WhoSoup/factomd/tree/FACTOMIZE_new_p2p
