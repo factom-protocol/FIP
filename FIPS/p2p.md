@@ -36,7 +36,7 @@ https://i.imgur.com/lyLXsVX.png
 
 An **Endpoint** is an internet location to which a node can connect to. It consists of an ip address with a port.
 
-A **Peer** is an active TCP connection between two nodes. They are identified by their **Peer Hash**, a combination of endpoint and a self-reported nonce called **NodeID**. There exists one and only one Peer instance per Hash. Each peer has a protocol adapter.
+A **Peer** is an active TCP connection between two nodes. They are identified by their **Peer Hash**, a combination of endpoint and a self-reported number called **NodeID**. There exists one and only one Peer instance per Hash. Each peer has a protocol adapter.
 
 Peers and Endpoints are in an `n:m` relation to each other. One endpoint has multiple peers and each peer has zero or one endpoint.
 
@@ -45,6 +45,37 @@ Peers and Endpoints are in an `n:m` relation to each other. One endpoint has mul
 The **Controller** is responsible for management of peers (accepting new connections, dialing, persistence etc) as well as routing messages to the right peer. 
 
 The biggest change is that new connections will now handshake before being accepted. This gives the network far greater control of which connections to accept and which to reject. After a successful handshake (more on that below), all Peers in the system will have a unique but identifiable peer hash as well as a version specific protocol adapter. 
+
+### Accepting Connections
+
+An inbound connection is accepted based on the following criteria:
+
+1. The remote address can be determined
+2. The ip address is not banned
+3. The maximum inbound connections have not been reached (or it is a special address)
+4. The per-ip limit has not been reached
+5. The handshake is successful
+6. The endpoint of the peer is not banned
+
+### Dialing Endpoints
+
+Endpoints are first selected from the list of all known endpoints using the following criteria:
+
+1. The endpoint is not banned
+2. The endpoint has not been dialed recently
+3. The endpoint is not an inbound connection that has very recently disconnected
+4. The maximum amount of attempts have not been reached, or it has been long enough to try again, or the endpoint is special
+5. Separate regular and special endpoints
+
+All special endpoints are dialed unless they are locked.
+
+Out of the regular endpoints, the node picks enough entries to get up to the desired amount of outbound connections by choosing entries that are as distinct as possible to each other. To get N entries, the endpoints are spread over N buckets based on their prefix. Entries are randomly taken from each bucket until N are chosen.
+
+Those N entries are then dialed if:
+
+1. We are not already connected to that endpoint
+
+
 
 ### Peers.json
 
@@ -94,15 +125,17 @@ Additionally, when fanning out a broadcast, special peers will always be sent pa
 The handshake starts with an already established TCP connection.
 
 1. A deadline is set for both reading and writing according to the configuration
-2. Generate a Handshake containing our preferred version, listen port, network id, and a nonce as node id and send it across the wire
+2. Generate a Handshake containing our preferred version, listen port, network id, node id, and a nonce as payload and send it across the wire
 3. Blocking read the first message
-4. Verify that we are in the same network and not connected to ourselves
+4. Verify that we are in the same network and the nonce doesn't match ours
 5. Calculate the minimum of both our and their version
 6. Check if we can handle that version and initialize the protocol adapter
 
 If any step fails, the handshake will fail. 
 
 For backward compatibility, the Handshake message is in the same format as protocol V9 requests but it uses the parcel type "Handshake". Nodes running the old software will just drop the invalid message without affecting the node's status in any way. For specific format, see below.
+
+**Note**: The payload nonce format needs to be only known by the node itself. This implementation uses the hexadecimal string representation of a random uint64 that's calculcated on startup and is distinct from the NodeID, which is specified by the configuration and can persist across reboots
 
 ### V9
 
