@@ -94,9 +94,9 @@ Additionally, when fanning out a broadcast, special peers will always be sent pa
 The handshake starts with an already established TCP connection.
 
 1. A deadline is set for both reading and writing according to the configuration
-2. Generate a Handshake containing our preferred version, listen port, network id, and node id and send it across the wire
+2. Generate a Handshake containing our preferred version, listen port, network id, and a nonce as node id and send it across the wire
 3. Blocking read the first message
-4. Verify that we are in the same network
+4. Verify that we are in the same network and not connected to ourselves
 5. Calculate the minimum of both our and their version
 6. Check if we can handle that version and initialize the protocol adapter
 
