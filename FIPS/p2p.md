@@ -1,6 +1,6 @@
 | FIP   | Title         | Status | Category               | Author                                     | Created    |
 | ----- | ------------- | ------ | ---------------------- | ------------------------------------------ | ---------- |
-| -     | P2P 2.0  | Draft  | Core       | Who Soup \<<who.soup@gmail.com>\>       | 20190506   |
+| -     | P2P 2.0  | WIP  | Core       | Who Soup \<<who.soup@gmail.com>\>       | 20190506   |
 
 
 # Summary
