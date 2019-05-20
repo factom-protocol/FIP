@@ -75,6 +75,10 @@ Those N entries are then dialed if:
 
 1. We are not already connected to that endpoint
 
+### Sharing Endpoints
+
+
+
 
 
 ### Peers.json
