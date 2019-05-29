@@ -1,6 +1,6 @@
 | FIP   | Title         | Status | Category               | Author                                     | Created    |
 | ----- | ------------- | ------ | ---------------------- | ------------------------------------------ | ---------- |
-| -     | Config  | Draft  | Core       | Who Soup \<<who.soup@gmail.com>\>, Jay Cheroske \<<jay@bedrocksolutions.io>\>       | 20190520   |
+| -     | Config  | Draft  | Core       | Who Soup \<<who.soup@gmail.com>\><br>Jay Cheroske \<<jay@bedrocksolutions.io>\>       | 20190520   |
 
 
 # Summary
