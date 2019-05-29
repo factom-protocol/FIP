@@ -135,9 +135,11 @@ webTLSCertificate =
 
 ; The addresses to include in the certificate. Repeat for every address.
 webtlsAddress = 
+
 ; If set, the control panel and API will require basic http authentication to use
 webUsername = 
 webPassword = 
+
 ; This sets the Cross-Origin Resource Sharing (CORS) header for the API and Walletd.
 ; If left blank, CORS is disabled
 webCORS = 
@@ -375,12 +377,25 @@ p2pPort: 8110
 p2pSeed: https://raw.githubusercontent.com/FactomProject/communitytestnet/master/seeds/testnetseeds.txt
 ```
 
+## Short Flags
+
+* `-n` short for `Network`
+* `-h` short for `HomeDir`
+* `-b` short for `BlockTime`
+* `-db` short for `dbType` 
+* `-fb` short for `dbFastBoot`
+* `-p` short for `p2pSpecialPeer`
+* `-l` short for `logLevel`
+* `-m` short for `logMessages`
+* `-sc` short for `simCount`
+* `-sn` short for `simNet`
+
 
 # Implementation
 
-The configuration code is placed in its own "config" package under `factomd/config`. To parse command line flags, the `go-flags` package is used as it provides built-in support for grouping, short/long flags, and enum types. To parse the config file, the `go-ini` package is used to improve malleability and improved group support (like subgroups).
+The configuration code is placed in its own "config" package under `factomd/config`. To parse command line flags, the `go-flags` package is used as it provides built-in support for grouping, short/long flags, and enum types. To parse the config file, the `go-ini` package is used to improve malleability and improved group support (like subgroups for networks).
 
-The configuration itself is only specified in one location: the `settings.go` file, which contains . The default configuration and ini are generated
+The configuration itself is only specified in one location: the `config/configuration.go` file, which contains the struct that the config is parsed into. 
 
 # Copyright
 
