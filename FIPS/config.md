@@ -5,7 +5,7 @@
 
 # Summary
 
-Unifiying and simplifying the way the config file (`factomd.conf`) and the command line parameters are loaded. Settings are split into groups, ie Core, P2P, Database, with individual groups for every network that override on a per-network basis. All settings available in the config are also command line parameters, with the command line parameter superceding the configuration setting. Command line parameters are named `-group.name` with the option of short names for select, high use settings.
+Unifiying and simplifying the way the config file (`factomd.conf`) and the command line parameters are loaded. Settings are arranged by common functionality with the ability to overwrite any setting on a network-by-network basis. All settings available in the config are also command line parameters, with the command line parameter superceding the configuration setting. Command line parameters are named the same as config file options, with short names for select, high use settings.
 
 # Motivation
 
