@@ -69,12 +69,11 @@ The configuration file consists of the following sections and settings, which ar
 ; Enable to force a node to always run as follower
 ; forceFollower = false
 
-; The chain id for the factoshi exchange rate updates.
-; FERChain = 111111118d918a8be684e0dac725493a75862ef96d2d3f43f84b26969329bf03
+; The Oracle Chain governs the current exchange rate of Factoshi to EC
+; OracleChain = 111111118d918a8be684e0dac725493a75862ef96d2d3f43f84b26969329bf03
 
-; The public key that validates entries to the FER Chain.
-; default = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
-; FERPublicKey: daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
+; The public key that validates entries to the Oracle chain
+; OraclePublicKey = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
 
 ; The identity that signed the genesis block.
 ; bootstrapIdentity = 38bab1455b7bd7e5efd15c53c777c79d0c988e9210f1da49a99d95b3a6417be9
