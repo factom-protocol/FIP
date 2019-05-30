@@ -49,98 +49,98 @@ The configuration file consists of the following sections and settings, which ar
 [factomd]
 ; ---------------- GLOBAL ----------------
 ; The name of the network to connect to, such as MAIN, LOCAL, TEST, or fct_community_test
-; network = MAIN
+;network = MAIN
 
 ; The directory to keep factom data in. If left blank it defaults to ~/.factom/m2/ on *nix
 ; and %HOMEPATH%/.factom/m2/ on windows
-; homeDir = 
+;homeDir = 
 
 ; ---------------- CONSENSUS ----------------
 ; The time to build one directory block
-; blockTime = 10m
+;blockTime = 10m
 
 ; How long to wait for authority nodes each factom-minute before faulting them. Should be higher
 ; than a tenth of "blockTime"
-; faultTimeout = 2m
+;faultTimeout = 2m
 
 ; How long an audit node has to volunteer before moving to the next one
-; roundTimeout = 30s
+;roundTimeout = 30s
 
 ; Enable to force a node to always run as follower
-; forceFollower = false
+;forceFollower = false
 
 ; The Oracle Chain governs the current exchange rate of Factoshi to EC
-; OracleChain = 111111118d918a8be684e0dac725493a75862ef96d2d3f43f84b26969329bf03
+;OracleChain = 111111118d918a8be684e0dac725493a75862ef96d2d3f43f84b26969329bf03
 
 ; The public key that validates entries to the Oracle chain
-; OraclePublicKey = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
+;OraclePublicKey = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
 
 ; The identity that signed the genesis block.
-; bootstrapIdentity = 38bab1455b7bd7e5efd15c53c777c79d0c988e9210f1da49a99d95b3a6417be9
-; bootstrapKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
+;bootstrapIdentity = 38bab1455b7bd7e5efd15c53c777c79d0c988e9210f1da49a99d95b3a6417be9
+;bootstrapKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
 
 ; Add balance hashes to ACKs
-; balanceHash = true
+;balanceHash = true
 
 ; Delay time for when to start processing requests for missing messages
-; startDelay = 0s
+;startDelay = 0s
 
 ; ---------------- IDENTITY ----------------
 ; The identity chain of this node.
-; identityChain =
+;identityChain =
 
 ; The private key of the identity used to sign messages. Ed25519 key in hexadecimal.
-; identityPrivateKey = 4c38c72fc5cdad68f13b74674d3ffb1f3d63a112710868c9b08946553448d26d
+;identityPrivateKey = 4c38c72fc5cdad68f13b74674d3ffb1f3d63a112710868c9b08946553448d26d
 
 ; The public key of the identity used to sign messages. Ed25519 key in hexadecimal.
-; identityPublicKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
+;identityPublicKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
 
 ; The height at which to activate the identity (for brainswaps)
-; identityActivationHeight = 0
+;identityActivationHeight = 0
 
 
 ; ---------------- WEB SERVICES ----------------
 ; The port at which to access the factomd API
-; apiPort = 8088
+;apiPort = 8088
 
 ; The mode of operation of the control panel
 ; Choices are: DISABLED | READONLY | READWRITE
-; controlPanel = READONLY
+;controlPanel = READONLY
 
 ; The web-port at which to access the control panel
-; controlPanelPort = 8090
+;controlPanelPort = 8090
 
 ; The display name of the node on the control panel.
-; controlPanelName = 
+;controlPanelName = 
 
 ; If enabled, the pprof server will accept connections outside of localhost
-; pprofExpose = false
+;pprofExpose = false
 
 ; Port for the pprof frontend
-; pprofPort = 6060
+;pprofPort = 6060
 
 ; Pprof memory profiling rate. 0 to disable, 1 for everything. default is 512kibi
-; pprofMPR = 524288
+;pprofMPR = 524288
 
 
 ; If TLS is enabled, the control panel and API will only be accessible via HTTPS. If you
 ; have a certificate, you can specify the location of the certificate and PEM key. 
 ; If you enable TLS without an existing certificate, factomd will generate a self-signed
 ; certificate inside HomeDir, using the specified addresses in addition to localhost
-; webTLS = false
-; webTLSKey =
-; webTLSCertificate =
+;webTLS = false
+;webTLSKey =
+;webTLSCertificate =
 
 ; The addresses to include in the certificate. Repeat for every address.
-; webTLSAddress = 
+;webTLSAddress = 
 
 ; If set, the control panel and API will require basic http authentication to use
-; webUsername = 
-; webPassword = 
+;webUsername = 
+;webPassword = 
 
 ; This sets the Cross-Origin Resource Sharing (CORS) header for the API and Walletd.
 ; If left blank, CORS is disabled
-; webCORS = 
+;webCORS = 
 
 
 ; ---------------- DATABASE ----------------
@@ -149,125 +149,125 @@ The configuration file consists of the following sections and settings, which ar
 ;   LDB: LevelDB (default)
 ;   BOLT: BoltDB
 ;   MAP: in-memory only database
-; dbType = LDB
+;dbType = LDB
 
 ; Set a unique identifier included in the path if you want run multiple databases in the same HomeDir
-; dbSlug = 
+;dbSlug = 
 
 ; Sub-path relative to HomeDir to store Ldb files
-; dbLdbPath = database/ldb
+;dbLdbPath = database/ldb
 
 ; Sub-path relative to HomeDir for BoltDB
-; dbBoltPath = database/bolt
+;dbBoltPath = database/bolt
 
 ; If enabled, factomd will turn on the block extractor to export blocks to disk
-; dbExportData = false
+;dbExportData = false
 
 ; Sub-path relative to HomeDir for exporting data
-; dbExportDataPath = database/export/
+;dbExportDataPath = database/export/
 
 ; Sub-path relative to HomeDir for the block extractor
-; dbDataStorePath = data/export
+;dbDataStorePath = data/export
 
 ; Enable the use of the FastBoot file to cache block validation
-; dbFastBoot = true
+;dbFastBoot = true
 
 ; Create a FastBoot entry every X blocks
-; dbFastBootRate = 1000
+;dbFastBootRate = 1000
 
 ; ---------------- P2P ----------------
 ; If disabled, the node will not connect to a network
-; p2pEnable = true
+;p2pEnable = true
 
 ; If enabled, peers will be persisted to disk
-; p2pPeerFile = true
+;p2pPeerFile = true
 
 ; The default ports used for network connections
-; p2pPort = 8108
+;p2pPort = 8108
 
 ; The URL of the seed file to use for bootstrapping.
-; p2pSeed =
+;p2pSeed =
 
 ; How many peers to broadcast messages to
-; p2pFanout = 16
+;p2pFanout = 16
 
 ; A list of peers that the node will always connect to in the format of "host:port". Repeatable.
 ; Example to add three special peers:
 ;   p2pSpecialPeer = "123.456.78.9:8108"
 ;   p2pSpecialPeer = "97.86.54.32:8108"
 ;   p2pSpecialPeer = "56.78.91.23:8108"
-; p2pSpecialPeer = 
+;p2pSpecialPeer = 
 
 ; Which peers the node should allow.
 ; Choices:
 ;   NORMAL: allows all connections (default)
 ;   ACCEPT: the node accepts incoming connection but only dials to special peers
 ;   REFUSE: the node dials to special peers but refuses all incoming connections
-; p2pMode = NORMAL
+;p2pMode = NORMAL
 
 ; How long peers have to send or receive a message before timing out
-; p2pTimeout = 5m
+;p2pTimeout = 5m
 
 
 ; ---------------- LOGGING ----------------
 ; The level of messages to log. Higher levels are included
 ; Choices (from lowest to highest level):
 ;   DEBUG | INFO | NOTICE | WARNING | ERROR | CRITICAL | ALERT | EMERGENCY | NONE
-; logLevel = ERROR
+;logLevel = ERROR
 
 ; The sub-path of HomeDir to store logs in
-; logPath = database/Log
+;logPath = database/Log
 
 ; If enabled, log files will be written in JSON
-; logJson = false
+;logJson = false
 
 ; The URL of a logstash server to send logs to. Leave blank to disable
-; logLogstash = 
+;logLogstash = 
 
 ; Specify a file to write a copy of StdOut to file
-; logStdOut =
+;logStdOut =
 
 ; Specify a file to write a copy of StdErr to file
-; logStdErr = 
+;logStdErr = 
 
 ; A regular expression of which message logs to save in the current working directory
 ; For more details see https://factomize.com/forums/threads/logging-in-factomd.1766/
-; logMessages = 
+;logMessages = 
 
 ; Save DBStates to disk after being processed
 ; Files will be saved to dbLdbPath/<network>/dbstates/processed_dbstate_<height>.block
-; logDBStates = false
+;logDBStates = false
 
 
 ; ---------------- SIMULATION ----------------
 ; Enable console input to send commands
-; simConsole = true
+;simConsole = true
 
 ; How many simulated nodes to launch with a minimum of one
-; simCount = 1
+;simCount = 1
 
 ; The node to focus on at startup. The first node starts at 0
-; simFocus = 0
+;simFocus = 0
 
 ; The network structure of the simulated network
 ; Choices: FILE | SQUARE | LONG | LOOPS | ALOT | ALOT+ | TREE | CIRCLES
-; simNet = LONG
+;simNet = LONG
 
 ; The path to the sim node file for simNet=FILE
-; simNetFile = 
+;simNetFile = 
 
 ; Simulated drop rate for packets. Number of messages to drop out of 1000
-; simDropRate = 0
+;simDropRate = 0
 
 ; Time offset between clocks in simulated nodes
-; simTimeOffset = 0s
+;simTimeOffset = 0s
 
 ; If enabled, the node will keep track of recently sent messages that can be displayed
 ; in the console with the "m" command
-; simRuntimeLog = false
+;simRuntimeLog = false
 
 ; Pause the processing of entries in the processlist. Equivalent to the "W" command
-; simWait = false
+;simWait = false
 
 
 ; ---------------- DEBUG ----------------
@@ -276,54 +276,54 @@ The configuration file consists of the following sections and settings, which ar
 ;   OFF: no debug console (default)
 ;   LOCAL: only accepts connections from localhost and launches a terminal
 ;   ON: accepts remote connections
-; debugConsole = OFF
+;debugConsole = OFF
 
 ; The port to launch the console server
-; debugConsolePort = 8093
+;debugConsolePort = 8093
 
 ; If enabled, check the validity of chain heads on boot
-; chainHeadCheck = true
+;chainHeadCheck = true
 
 ; If enabled, try to automatically fix any invalid chain heads
-; chainHeadFix = true
+;chainHeadFix = true
 
 ; If enabled, all entries for one factom-minute will be handled by a VM index 0
 ; instead of being distributed over all VMs
-; oneLeader = false
+;oneLeader = false
 
 ; Keep the node's DBState even if the signature doesn't match with the majority
-; keepMismatch = false
+;keepMismatch = false
 
 ; Force the height on the second pass sync. Set to -1 to disable, 0 to force a complete sync
-; forceSync2Height = -1
+;forceSync2Height = -1
 
 
 ; ---------------- JOURNALING ----------------
 ; Path to the journal file. Journaling disabled if left blank.
-; journalFile = 
+;journalFile = 
 
 ; Whether to create a new journal or play back an existing journal
 ; Choices: CREATE | READ
-; journalMode = READ
+;journalMode = READ
 
 ; Force the node to run the journal as a specific node type.
 ; Choices:
 ;   AUTO: let node determine (default)
 ;   FOLLOWER: node is a follower
 ;   LEADER: node is a leader
-; journalType = AUTO
+;journalType = AUTO
 
 
 ; ---------------- PLUGINS ----------------
 ; In order for plugins to be enabled, the binaries have to be located inside the plugin folder
 ; Path to the plugin binaries folder.
-; pluginPath = 
+;pluginPath = 
 
 ; Enable torrent sync plugin 
-; pluginTorrent = false
+;pluginTorrent = false
 
 ; If enabled, the node is an upload in the torrent network
-; pluginTorrentUpload = false
+;pluginTorrentUpload = false
 
 
 ; ------------------------------------------------------------------------------
