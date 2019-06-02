@@ -70,17 +70,17 @@ The configuration file consists of the following sections and settings, which ar
 ;forceFollower = false
 
 ; The Oracle Chain governs the current exchange rate of Factoshi to EC
-;OracleChain = 111111118d918a8be684e0dac725493a75862ef96d2d3f43f84b26969329bf03
+;oracleChain = 111111118d918a8be684e0dac725493a75862ef96d2d3f43f84b26969329bf03
 
 ; The public key that validates entries to the Oracle chain
-;OraclePublicKey = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
+;oraclePublicKey = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
 
 ; The identity that signed the genesis block.
 ;bootstrapIdentity = 38bab1455b7bd7e5efd15c53c777c79d0c988e9210f1da49a99d95b3a6417be9
 ;bootstrapKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
 
-; Add balance hashes to ACKs
-;balanceHash = true
+; Disable adding balance hashes to ACKs
+;noBalanceHash = false
 
 ; Delay time for when to start processing requests for missing messages
 ;startDelay = 0s
@@ -169,18 +169,18 @@ The configuration file consists of the following sections and settings, which ar
 ; Sub-path relative to HomeDir for the block extractor
 ;dbDataStorePath = data/export
 
-; Enable the use of the FastBoot file to cache block validation
-;dbFastBoot = true
+; Disable the use of the FastBoot file to cache block validation
+;dbNoFastBoot = false
 
 ; Create a FastBoot entry every X blocks
 ;dbFastBootRate = 1000
 
 ; ---------------- P2P ----------------
-; If disabled, the node will not connect to a network
-;p2pEnable = true
+; Disable the peer to peer network
+;p2pDisable = false
 
-; If enabled, peers will be persisted to disk
-;p2pPeerFile = true
+; Don't load peers from disk on boot and don't persist peers
+;p2pNoPeerCache = false
 
 ; The default ports used for network connections
 ;p2pPort = 8108
@@ -240,8 +240,8 @@ The configuration file consists of the following sections and settings, which ar
 
 
 ; ---------------- SIMULATION ----------------
-; Enable console input to send commands
-;simConsole = true
+; Disable keyboard input to the console
+;simNoInput = false
 
 ; How many simulated nodes to launch with a minimum of one
 ;simCount = 1
@@ -281,11 +281,12 @@ The configuration file consists of the following sections and settings, which ar
 ; The port to launch the console server
 ;debugConsolePort = 8093
 
-; If enabled, check the validity of chain heads on boot
-;chainHeadCheck = true
-
-; If enabled, try to automatically fix any invalid chain heads
-;chainHeadFix = true
+; The behavior of validating chain heads on boot
+; Choices:
+;   OFF: don't check at all
+;   IGNORE: check but don't fix
+;   ON: check and automatically fix invalid chain heads
+;chainHeadFix = ON
 
 ; If enabled, all entries for one factom-minute will be handled by a VM index 0
 ; instead of being distributed over all VMs
