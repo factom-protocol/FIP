@@ -179,8 +179,8 @@ The configuration file consists of the following sections and settings, which ar
 ; Disable the peer to peer network
 ;p2pDisable = false
 
-; Don't load peers from disk on boot and don't persist peers
-;p2pNoPeerCache = false
+; The filename suffix of the peers file which is prepended by the network
+;p2pFileSuffix = "peers.json"
 
 ; The default ports used for network connections
 ;p2pPort = 8108
@@ -393,7 +393,6 @@ p2pSeed: https://raw.githubusercontent.com/FactomProject/communitytestnet/master
 * `-m` short for `logMessages`
 * `-sc` short for `simCount`
 * `-sn` short for `simNet`
-
 
 # Implementation
 
