@@ -130,7 +130,8 @@ The configuration file consists of the following sections and settings, which ar
 ;webTLSKey =
 ;webTLSCertificate =
 
-; The addresses to include in the certificate. Repeat for every address.
+; The addresses to include in the certificate, comma separated list
+; Example: "localhost,127.0.0.1,testserver.com"
 ;webTLSAddress = 
 
 ; If set, the control panel and API will require basic http authentication to use
@@ -190,12 +191,10 @@ The configuration file consists of the following sections and settings, which ar
 ; How many peers to broadcast messages to
 ;p2pFanout = 16
 
-; A list of peers that the node will always connect to in the format of "host:port". Repeatable.
-; Example to add three special peers:
-;   p2pSpecialPeer = "123.456.78.9:8108"
-;   p2pSpecialPeer = "97.86.54.32:8108"
-;   p2pSpecialPeer = "56.78.91.23:8108"
-;p2pSpecialPeer = 
+; A comma-separated list of peers that the node will always connect to in the format of "host:port". 
+; Example to add four special peers:
+;   p2pSpecialPeers = "123.456.78.9:8108,97.86.54.32:8108,56.78.91.23:8108,hostname:8108"
+;p2pSpecialPeers = 
 
 ; Which peers the node should allow.
 ; Choices:
