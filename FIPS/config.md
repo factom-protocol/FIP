@@ -40,9 +40,8 @@ The configuration file consists of the following sections and settings, which ar
 ; All settings are case-insensitive with a command line equivalent of "--name=value",
 ; e.g.: "--blocktime=10m"
 ;
-; Time-based variables allow semantic input between milliseconds (ms), seconds (s)
+; Time-based variables allow semantic input between seconds (s)
 ; minutes (m), hours (h), days (d), defaulting to seconds:
-;   30ms = 30 milliseconds
 ;   180 = 180s = 3m
 ;   48h = 2d
 ;
@@ -203,7 +202,7 @@ The configuration file consists of the following sections and settings, which ar
 ;   NORMAL: allows all connections (default)
 ;   ACCEPT: the node accepts incoming connection but only dials to special peers
 ;   REFUSE: the node dials to special peers but refuses all incoming connections
-;p2pMode = NORMAL
+;p2pConnectionPolicy = NORMAL
 
 ; How long peers have to send or receive a message before timing out
 ;p2pTimeout = 5m
