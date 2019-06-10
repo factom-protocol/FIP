@@ -409,7 +409,7 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |roundTimeout|N/A|roundtimeout||
 |forceFollower|NodeMode|N/A|The previous settings were "FULL" and "SERVER" which are not self explanatory. Using "FULL" simply forced a node to run as follower while "SERVER" auto-determined. This change reflects that behavior|
 |oracleChain|ExchangeRateChainId|N/A|Shortening and calling it "oracle". "Exchange rate" was ambiguous as it does not specify if it's FCT to USD, FCT to Factoshi, or * to EC.|
-|oraclePublicKey|ExchangeRateAuthorityPublicKey<br>ExchangeRateAuthorityPublicKeyMainNet<br>ExchangeRateAuthorityPublicKeyTestNet<br>ExchangeRateAuthorityPublicKeyLocalNet|N/A|Unifying these into one setting using the new network-specific categories|
+|oraclePublicKey|ExchangeRateAuthority<br>PublicKey<br>ExchangeRateAuthority<br>PublicKeyMainNet<br>ExchangeRateAuthority<br>PublicKeyTestNet<br>ExchangeRateAuthority<br>PublicKeyLocalNet|N/A|Unifying these into one setting using the new network-specific categories|
 |bootstrapIdentity<br>boostrapKey|CustomBootstrapIdentity<br>CustomBootstrapKey|N/A|Dropping "custom"|
 |noBalanceHash|N/A|balancehash|Changing name to reflect the default of false|
 |startDelay|N/A|startdelay||
