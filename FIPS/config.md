@@ -127,8 +127,8 @@ The configuration file consists of the following sections and settings, which ar
 ; If you enable TLS without an existing certificate, factomd will generate a self-signed
 ; certificate inside HomeDir, using the specified addresses in addition to localhost
 ;webTLS = false
-;webTLSKey =
 ;webTLSCertificate =
+;webTLSKey =
 
 ; To include any additional ip addresses or hostnames in the self-signed certificate, add
 ; them in a comma-separated list. Note that localhost, 127.0.0.1, and ::1 are included by default.
@@ -382,6 +382,7 @@ p2pSeed: https://raw.githubusercontent.com/FactomProject/communitytestnet/master
 
 ## Short Flags
 
+* `-c` short for `config`
 * `-n` short for `network`
 * `-h` short for `homeDir`
 * `-b` short for `blockTime`
@@ -417,7 +418,7 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |controlPanel|ControlPanelSetting|controlpanelsetting|Removing redundancy|
 |controlPanelPort|ControlPanelPort|controlpanelport||
 |controlPanelName|N/A|nodename|The name is a display name only used in the control panel|
-|pprofExpose|N/A|expose|Ambiguity / grouping|
+|pprofExpose|N/A|exposeprofiler|Ambiguity / grouping|
 |pprofPort|N/A|logPort|Ambiguity/grouping|
 |pprofMPR|N/A|mpr|Grouping|
 |webTLS|FactomdTlsEnabled|tls|grouping under "web services"|
@@ -465,19 +466,17 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |keepMismatch|N/A|keepmismatch||
 |forceSync2Height|N/A|sync2|More descriptive|
 |journalFile<br>journalMode<br>journalType|N/A|journaling<br>journal<br>follower<br>leader|Before, "journaling" turned it on and off, "journal" specified a file. If the file did not exist it was writing, if the file existed it was reading. There were also two booleans for forcing followers and leader, where (true, true) is invalid.|
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+|pluginPath|N/A|plugin|More descriptive|
+|pluginTorrent<br>pluginTorrentUpload|N/A|tormanage<br>torupload||
 
-Setting: `network`
+### Deprecated Settings
+
+|Config | Command Line | Reason |
+|-------|--------------|--------|
+|FastBootLocation||This still works but there's some inconsistency with regards to simulated nodes, which overwrite this setting. There's no reason to save this anywhere other than homedir, which is the default, but if this setting is still desired I'm open to un-deprecating it |
+|ControlPanelFilesPath||Exists but has no effect|
+|ExchangeRate||This setting exists but the value from the origin block is used instead|
+||clonedb|Exists but has no effect on anything|
 
 
 
