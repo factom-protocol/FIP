@@ -130,9 +130,10 @@ The configuration file consists of the following sections and settings, which ar
 ;webTLSKey =
 ;webTLSCertificate =
 
-; The addresses to include in the certificate, comma separated list
-; Example: "localhost,127.0.0.1,testserver.com"
-;webTLSAddress = 
+; To include any additional ip addresses or hostnames in the self-signed certificate, add
+; them in a comma-separated list. Note that localhost, 127.0.0.1, and ::1 are included by default.
+; Example: "exampledomain.abc,192.168.0.1,192.168.0.2"
+;webTLSHosts = 
 
 ; If set, the control panel and API will require basic http authentication to use
 ;webUsername = 
@@ -381,9 +382,9 @@ p2pSeed: https://raw.githubusercontent.com/FactomProject/communitytestnet/master
 
 ## Short Flags
 
-* `-n` short for `Network`
-* `-h` short for `HomeDir`
-* `-b` short for `BlockTime`
+* `-n` short for `network`
+* `-h` short for `homeDir`
+* `-b` short for `blockTime`
 * `-db` short for `dbType` 
 * `-fb` short for `dbFastBoot`
 * `-p` short for `p2pSpecialPeer`
@@ -391,6 +392,94 @@ p2pSeed: https://raw.githubusercontent.com/FactomProject/communitytestnet/master
 * `-m` short for `logMessages`
 * `-sc` short for `simCount`
 * `-sn` short for `simNet`
+
+# Changes
+
+Some of these settings appear new but they are an amalgamation of previous settings to reduce confusion.
+
+| New | Old Config | Old Cmd | Description |
+|-----|------------|---------|-------------|
+|network|network<br>N/A|network<br>customnet|These settings have been rolled into one, meaning you can specify network=MAIN or network=fct_community_test. The drawback is that it's no longer possible to have a custom network named "MAIN" which is separate from the actual "MAIN" network. <br><br>Further, input has been limited to A-Z, a-z, 0-9, and _ to prevent confusing names (such as utf8 lookalikes). This change is up for debate|
+|homeDir|HomeDir|factomhome|  |
+|blockTime|DirectoryBlockInSeconds|-blktime| Dropping 'InSeconds' due to new time system | 
+|faultTimeout|N/A|faulttimeout| |
+|roundTimeout|N/A|roundtimeout||
+|forceFollower|NodeMode|N/A|The previous settings were "FULL" and "SERVER" which are not self explanatory. Using "FULL" simply forced a node to run as follower while "SERVER" auto-determined. This change reflects that behavior|
+|oracleChain|ExchangeRateChainId|N/A|Shortening and calling it "oracle". "Exchange rate" was ambiguous as it does not specify if it's FCT to USD, FCT to Factoshi, or * to EC.|
+|oraclePublicKey|ExchangeRateAuthorityPublicKey<br>ExchangeRateAuthorityPublicKeyMainNet<br>ExchangeRateAuthorityPublicKeyTestNet<br>ExchangeRateAuthorityPublicKeyLocalNet|N/A|Unifying these into one setting using the new network-specific categories|
+|bootstrapIdentity<br>boostrapKey|CustomBootstrapIdentity<br>CustomBootstrapKey|N/A|Dropping "custom"|
+|noBalanceHash|N/A|balancehash|Changing name to reflect the default of false|
+|startDelay|N/A|startdelay||
+|identityChain|IdentityChainID|N/A|dropping "id"|
+|identityPrivateKey<br>identityPublicKey|LocalServerPrivKey<br>LocalServerPublicKey|N/A|Grouping as identity|
+|identityActivationHeight|ChangeAcksHeight|N/A|Renaming to be more descriptive of what it does (the brainswap variable)|
+|apiPort|port|port|Ambiguity change|
+|controlPanel|ControlPanelSetting|controlpanelsetting|Removing redundancy|
+|controlPanelPort|ControlPanelPort|controlpanelport||
+|controlPanelName|N/A|nodename|The name is a display name only used in the control panel|
+|pprofExpose|N/A|expose|Ambiguity / grouping|
+|pprofPort|N/A|logPort|Ambiguity/grouping|
+|pprofMPR|N/A|mpr|Grouping|
+|webTLS|FactomdTlsEnabled|tls|grouping under "web services"|
+|webTLSCertificate|FactomdTlsPublicCert|N/A||
+|webTLSKey|FactomdTlsPrivateKey|N/A||
+|webTLSHosts|N/A|selfaddr|Accepts a hybrid of hostnames and addresses, so I believe "Hosts" is more descriptive|
+|webUsername<br>webPassword|FactomdRpcUser<br>FactomdRpcPass|rpcuser<br>rpcpass|Grouping|
+|webCORS|CorsDomains|N/A|Grouping|
+|dbType|DBType|db||
+|dbSlug|N/A|prefix|Named after [url slugs](https://en.wikipedia.org/wiki/Clean_URL#Slug) but the name is up for debate|
+|dbLdbPath|LdbPath|N/A|Grouping|
+|dbBoltPath|BoldDBPath|N/A|Grouping + Unifying|
+|dbExportData|ExportData|N/A|Grouping|
+|dbExportDataPath|ExportDataSubPath|N/A|Grouping + Shortening|
+|dbNoFastBoot|FastBoot|fast|Changing name to reflect default of false|
+|dbFastBootRate|FastBootSaveRate|fastsaverate||
+|p2pDisable|N/A|enablenet|Grouping|
+|p2pPeerFileSuffix|PeersFile|N/A|Changing name to more accurately descript what it does. The file is pre-pended by the network name|
+|p2pPort|MainNetworkPort<br>TestNetworkPort<br>LocalNetworkPort<br>CustomNetworkPort|networkport|Rolling into one setting with new group system|
+|p2pSeed|MainSeedURL<br>TestSeedURL<br>LocalSeedURL<br>CustomSeedURL|N/A|Rolling into one setting with new group system|
+|p2pFanout|N/A|broadcastnum||
+|p2pSpecialPeers|MainSpecialPeers<br>TestSpecialPeers<br>LocalSpecialPeers<br>CustomSpecialPeers|peers|Rolling into one setting with new group system|
+|p2pConnectionPolicy|N/A|exclusive<br>exclusive_in|"exclusive_in" was a more powerful setting of "exclusive", so those two booleans have been rolled into three connection policies: NORMAL,ACCEPT,REFUSE|
+|p2pTimeout|N/A|deadline|Name is up for debate but I believe "timeout" gives people a better understanding even though "deadline" is more technically accurate|
+|logLevel|logLevel|loglvl||
+|logPath|LogPath|N/A||
+|logJSON|N/A|logjson||
+|logLogstash|N/A|logstash<br>logurl|This was a tandem setting that has been rolled into one. If there's a URL present, it's also enabled|
+|logStdOut|N/A|stdoutlog|Grouping|
+|logStdErr|N/A|stderrlog|Grouping|
+|logMessages|N/A|debuglog|More descriptive name|
+|logDBStates|N/A|wrproc|wrproc was short for "write processed db states"|
+|simNoInput|N/A|sim_stdin|Grouping + Name change to reflect default of false|
+|simCount|N/A|cnt|Grouping|
+|simFocus|N/A|node|Grouping + more descriptive name|
+|simNet|N/A|net|Grouping|
+|simNetFile|N/A|fnet|Grouping|
+|simDropRate|N/A|drop|Grouping + more descriptive name|
+|simTimeOffset|N/A|timedelta|Grouping. Name change up for debate|
+|simRuntimeLog|N/A|runtimelog|Grouping|
+|simWait|N/A|waitentries|Grouping|
+|debugConsole<br>debugConsolePort|N/A|debugconsole|This has been split up into two settings. Previously it was `(localhost|remote):<port>`. `localhost|remote` or empty setting is now `debugConsole` of OFF, LOCAL, ON, with the port specified separately.|
+|chainHeadFix|N/A|checkheads<br>fixheads|Two booleans with only 3 valid settings rolled into one with: OFF, IGNORE, ON|
+|oneLeader|N/A|rotate|Match the name in the code|
+|keepMismatch|N/A|keepmismatch||
+|forceSync2Height|N/A|sync2|More descriptive|
+|journalFile<br>journalMode<br>journalType|N/A|journaling<br>journal<br>follower<br>leader|Before, "journaling" turned it on and off, "journal" specified a file. If the file did not exist it was writing, if the file existed it was reading. There were also two booleans for forcing followers and leader, where (true, true) is invalid.|
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+
+Setting: `network`
+
+
 
 # Implementation
 
