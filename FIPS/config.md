@@ -404,7 +404,7 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |-----|------------|---------|-------------|
 |network|network<br>N/A|network<br>customnet|These settings have been rolled into one, meaning you can specify network=MAIN or network=fct_community_test. The drawback is that it's no longer possible to have a custom network named "MAIN" which is separate from the actual "MAIN" network. <br><br>Further, input has been limited to A-Z, a-z, 0-9, and _ to prevent confusing names (such as utf8 lookalikes). This change is up for debate|
 |homeDir|HomeDir|factomhome|  |
-|blockTime|DirectoryBlockInSeconds|-blktime| Dropping 'InSeconds' due to new time system | 
+|blockTime|DirectoryBlockInSeconds|blktime| Dropping 'InSeconds' due to new time system | 
 |faultTimeout|N/A|faulttimeout| |
 |roundTimeout|N/A|roundtimeout||
 |forceFollower|NodeMode|N/A|The previous settings were "FULL" and "SERVER" which are not self explanatory. Using "FULL" simply forced a node to run as follower while "SERVER" auto-determined. This change reflects that behavior|
