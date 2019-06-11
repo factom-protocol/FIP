@@ -135,7 +135,7 @@ The configuration file consists of the following sections and settings, which ar
 ; To include any additional ip addresses or hostnames in the self-signed certificate, add
 ; them in a comma-separated list. Note that localhost, 127.0.0.1, and ::1 are included by default.
 ; Example: "exampledomain.abc,192.168.0.1,192.168.0.2"
-;webTLSHosts = 
+;webTLSCertificateHosts = 
 
 ; If set, the control panel and API will require basic http authentication to use
 ;webUsername = 
@@ -426,7 +426,7 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |webTLS|FactomdTlsEnabled|tls|grouping under "web services"|
 |webTLSCertificate|FactomdTlsPublicCert|N/A||
 |webTLSKey|FactomdTlsPrivateKey|N/A||
-|webTLSHosts|N/A|selfaddr|Accepts a hybrid of hostnames and addresses, so I believe "Hosts" is more descriptive|
+|webTLSCertificateHosts|N/A|selfaddr|Accepts a hybrid of hostnames and addresses, so I believe "Hosts" is more descriptive|
 |webUsername<br>webPassword|FactomdRpcUser<br>FactomdRpcPass|rpcuser<br>rpcpass|Grouping|
 |webCORS|CorsDomains|N/A|Grouping|
 |dbType|DBType|db||
