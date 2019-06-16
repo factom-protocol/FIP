@@ -76,8 +76,9 @@ The configuration file consists of the following sections and settings, which ar
 ; The public key that validates entries to the Oracle chain
 ;oraclePublicKey = daf5815c2de603dbfa3e1e64f88a5cf06083307cf40da4a9b539c41832135b4a
 
-; The identity that signed the genesis block.
+; The identity of the node that will be the first federated server and sign the genesis block
 ;bootstrapIdentity = 38bab1455b7bd7e5efd15c53c777c79d0c988e9210f1da49a99d95b3a6417be9
+; The public key of the bootstrap identity. Ed25519 key in hexadecimal
 ;bootstrapKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
 
 ; Disable adding balance hashes to ACKs
@@ -87,13 +88,13 @@ The configuration file consists of the following sections and settings, which ar
 ;startDelay = 0s
 
 ; ---------------- IDENTITY ----------------
-; The identity chain of this node.
+; The identity chain of this node
 ;identityChain =
 
-; The private key of the identity used to sign messages. Ed25519 key in hexadecimal.
+; The private key of the identity used to sign messages. Ed25519 key in hexadecimal
 ;identityPrivateKey = 4c38c72fc5cdad68f13b74674d3ffb1f3d63a112710868c9b08946553448d26d
 
-; The public key of the identity used to sign messages. Ed25519 key in hexadecimal.
+; The public key of the identity used to sign messages. Ed25519 key in hexadecimal
 ;identityPublicKey = cc1985cdfae4e32b5a454dfda8ce5e1361558482684f3367649c3ad852c8e31a
 
 ; The height at which to activate the identity (for brainswaps)
@@ -111,7 +112,7 @@ The configuration file consists of the following sections and settings, which ar
 ; The web-port at which to access the control panel
 ;controlPanelPort = 8090
 
-; The display name of the node on the control panel.
+; The display name of the node on the control panel
 ;controlPanelName = 
 
 ; If enabled, the pprof server will accept connections outside of localhost
@@ -120,20 +121,20 @@ The configuration file consists of the following sections and settings, which ar
 ; Port for the pprof frontend
 ;pprofPort = 6060
 
-; Pprof memory profiling rate. 0 to disable, 1 for everything. default is 512kibi
+; pprof memory profiling rate. 0 to disable, 1 for everything. default is 512kibi
 ;pprofMPR = 524288
 
 
 ; If TLS is enabled, the control panel and API will only be accessible via HTTPS. If you
 ; have a certificate, you can specify the location of the certificate and PEM key. 
 ; If you enable TLS without an existing certificate, factomd will generate a self-signed
-; certificate inside HomeDir, using the specified addresses in addition to localhost
+; certificate inside HomeDir
 ;webTLS = false
 ;webTLSCertificate =
 ;webTLSKey =
 
 ; To include any additional ip addresses or hostnames in the self-signed certificate, add
-; them in a comma-separated list. Note that localhost, 127.0.0.1, and ::1 are included by default.
+; them in a comma-separated list. Note that localhost, 127.0.0.1, and ::1 are included by default
 ; Example: "exampledomain.abc,192.168.0.1,192.168.0.2"
 ;webTLSCertificateHosts = 
 
@@ -141,7 +142,7 @@ The configuration file consists of the following sections and settings, which ar
 ;webUsername = 
 ;webPassword = 
 
-; This sets the Cross-Origin Resource Sharing (CORS) header for the API and Walletd.
+; This sets the Cross-Origin Resource Sharing (CORS) header for the API and Walletd
 ; If left blank, CORS is disabled
 ;webCORS = 
 
@@ -185,16 +186,16 @@ The configuration file consists of the following sections and settings, which ar
 ; The filename suffix of the peers file which is added to the current network
 ;p2pPeerFileSuffix = "peers.json"
 
-; The default ports used for network connections
+; The default port used for network connections
 ;p2pPort = 8108
 
-; The URL of the seed file to use for bootstrapping.
+; The URL of the seed file to use for bootstrapping
 ;p2pSeed =
 
 ; How many peers to broadcast messages to
 ;p2pFanout = 16
 
-; A comma-separated list of peers that the node will always connect to in the format of "host:port". 
+; A comma-separated list of peers that the node will always connect to in the format of "host:port"
 ; Example to add four special peers:
 ;   p2pSpecialPeers = "123.456.78.9:8108,97.86.54.32:8108,56.78.91.23:8108,hostname:8108"
 ;p2pSpecialPeers = 
@@ -211,8 +212,8 @@ The configuration file consists of the following sections and settings, which ar
 
 
 ; ---------------- LOGGING ----------------
-; The level of messages to log. Higher levels are included
-; Choices (from lowest to highest level):
+; The level of messages to log. Setting includes all options to the right
+; Choices:
 ;   DEBUG | INFO | NOTICE | WARNING | ERROR | CRITICAL | ALERT | EMERGENCY | NONE
 ;logLevel = ERROR
 
@@ -301,14 +302,14 @@ The configuration file consists of the following sections and settings, which ar
 
 
 ; ---------------- JOURNALING ----------------
-; Path to the journal file. Journaling disabled if left blank.
+; Path to the journal file. Journaling disabled if left blank
 ;journalFile = 
 
 ; Whether to create a new journal or play back an existing journal
 ; Choices: CREATE | READ
 ;journalMode = READ
 
-; Force the node to run the journal as a specific node type.
+; Force the node to run the journal as a specific node type
 ; Choices:
 ;   AUTO: let node determine (default)
 ;   FOLLOWER: node is a follower
@@ -317,8 +318,8 @@ The configuration file consists of the following sections and settings, which ar
 
 
 ; ---------------- PLUGINS ----------------
-; In order for plugins to be enabled, the binaries have to be located inside the plugin folder
-; Path to the plugin binaries folder.
+; In order for plugins to be enabled, the binaries have to be located inside this folder. 
+; Leave blank to disable plugins
 ;pluginPath = 
 
 ; Enable torrent sync plugin 
