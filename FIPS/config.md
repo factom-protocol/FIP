@@ -7,11 +7,11 @@
 
 Unifiying and simplifying the way the config file (`factomd.conf`) and the command line parameters are loaded. Settings are arranged by common functionality with the ability to overwrite any setting on a network-by-network basis. All settings available in the config are also command line parameters, with the command line parameter superceding the configuration setting. Command line parameters are named the same as config file options, with short names for select, high use settings.
 
-The old config file will be deprecated but still readable to not break existing nodes
+The old config file will be deprecated but still readable to not break existing nodes.
 
 # Motivation
 
-At the moment, it's very inconvenient to add new flags to the node since parsing is spread out over several files and it's not clear where or which settings are overwritten in what way. The config file is defined in `util/config.go` and parsed by `state/state.go` during `engine/NetStart.go`, which will initialize the state. Parameters are parsed by `engine/factomParams.go` in `main()` and then overwritten throughout `NetStart`. Adding a config setting with flag requires editing three different packages and four files. 
+At the moment, it's very inconvenient to add new flags to the node since parsing is spread out over several files and it's not clear where or which settings are overwritten in what way. The config file is defined in `util/config.go` and parsed by `state/state.go` during `engine/NetStart.go`, which will initialize the state. Parameters are parsed by `engine/factomParams.go` in `main()` and then overwritten throughout `NetStart`. Adding a config setting with flag requires editing three different packages and four files. Some settings are config only, some settings are command line only.
 
 If you are running multiple nodes on the same machine, such as for development work, it's also not possible to use the same configuration for every use-case (main vs testnet) and files have to be swapped. Being able to set network-specific settings would enable one config file for multiple networks. 
 
@@ -485,11 +485,13 @@ Some of these settings appear new but they are an amalgamation of previous setti
 
 # Implementation
 
-The configuration code is placed in its own "config" package under `factomd/config`. To parse command line flags, the `go-flags` package is used as it provides built-in support for grouping, short/long flags, and enum types. To parse the config file, the `go-ini` package is used to improve malleability and improved group support.
+The configuration code is placed in its own "config" package under `factomd/config`. To parse the config file, the `go-ini` package is used to improve malleability and improved group support. In my research, I have not found a flag package that suits this scenario, as all packages include their own (redundant) error checking and data structures, which would result in requiring definitions to be in multiple places. Thus the flag parser will be a very simple parse-only algorithm that uses a combined error checking.
 
 The configuration itself is only specified in one location: the `config/configuration.go` file, which contains the struct that the config is parsed into. The default values and types are specified via golang tags to reduce the number of places a developer has to add new settings.
 
 Backward compatibility is determined by the presences of the old `[app]` category.
+
+Development will happen in this branch: https://github.com/WhoSoup/factomd/tree/FACTOMIZE_config
 
 # Copyright
 
