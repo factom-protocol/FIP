@@ -433,7 +433,7 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |dbType|DBType|db||
 |dbSlug|N/A|prefix|Named after [url slugs](https://en.wikipedia.org/wiki/Clean_URL#Slug) but the name is up for debate|
 |dbLdbPath|LdbPath|N/A|Grouping|
-|dbBoltPath|BoldDBPath|N/A|Grouping + Unifying|
+|dbBoltPath|BoltDBPath|N/A|Grouping + Unifying|
 |dbExportData|ExportData|N/A|Grouping|
 |dbExportDataPath|ExportDataSubPath|N/A|Grouping + Shortening|
 |dbNoFastBoot|FastBoot|fast|Changing name to reflect default of false|
