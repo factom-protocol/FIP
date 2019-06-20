@@ -253,7 +253,7 @@ The configuration file consists of the following sections and settings, which ar
 
 ; The network structure of the simulated network
 ; Choices: FILE | SQUARE | LONG | LOOPS | ALOT | ALOT+ | TREE | CIRCLES
-;simNet = LONG
+;simNet = ALOT+
 
 ; The path to the sim node file for simNet=FILE
 ;simNetFile = 
