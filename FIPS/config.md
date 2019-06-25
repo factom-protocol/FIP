@@ -463,7 +463,7 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |simTimeOffset|N/A|timedelta|Grouping. Name change up for debate|
 |simRuntimeLog|N/A|runtimelog|Grouping|
 |simWait|N/A|waitentries|Grouping|
-|debugConsole<br>debugConsolePort|N/A|debugconsole|This has been split up into two settings. Previously it was `(localhost|remote):<port>`. `localhost|remote` or empty setting is now `debugConsole` of OFF, LOCAL, ON, with the port specified separately.|
+|debugConsole<br>debugConsolePort|N/A|debugconsole|This has been split up into two settings. Previously it was `(localhost|remote):<port>`. `localhost\|remote` or empty setting is now `debugConsole` of OFF, LOCAL, ON, with the port specified separately.|
 |chainHeadFix|N/A|checkheads<br>fixheads|Two booleans with only 3 valid settings rolled into one with: OFF, IGNORE, ON|
 |oneLeader|N/A|rotate|Match the name in the code|
 |keepMismatch|N/A|keepmismatch||
@@ -477,9 +477,11 @@ Some of these settings appear new but they are an amalgamation of previous setti
 |Config | Command Line | Reason |
 |-------|--------------|--------|
 |FastBootLocation||This still works but there's some inconsistency with regards to simulated nodes, which overwrite this setting. There's no reason to save this anywhere other than homedir, which is the default, but if this setting is still desired I'm open to un-deprecating it |
-|ControlPanelFilesPath||Exists but has no effect|
+|ControlPanelFilesPath||Does nothing|
+|ConsoleLogLevel||Does nothing|
 |ExchangeRate||This setting exists but the value from the origin block is used instead|
 ||clonedb|Exists but has no effect on anything|
+
 
 
 
